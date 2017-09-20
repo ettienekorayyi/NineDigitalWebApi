@@ -22,15 +22,5 @@ namespace NineDigitalUnitTest
             
             Assert.AreEqual(expected,actual);
         }
-
-        [TestMethod]
-        public void PostInvalidJson()
-        {
-            var json = Constants.JsonTestData.invalidJsonData;
-            var expected = new NineDigitalController().Post(json);
-            var actual = NineDigitalController.JsonData;
-
-            Assert.Fail("The json data cannot be deserialized into Payload Object");
-        }
     }
 }

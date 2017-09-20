@@ -28,7 +28,6 @@ namespace NineDigitalWebApi.DataManagement
                     title = item.title
                 };
             }
-            
             return responseObject;
         }
     }

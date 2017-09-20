@@ -14,18 +14,9 @@ namespace NineDigitalWebApi.Common
         {
             try
             {
-                if (type.GetType() == typeof(string))
-                {
-                    return type.ToString();
-                }
-                else if (type.GetType() == typeof(JObject))
-                {
-                    return ((JObject)type).ToObject<PayloadObject>();
-                }
-                else
-                {
-                    return null;
-                }
+                if (type.GetType() == typeof(string)) return type.ToString();
+                else if (type.GetType() == typeof(JObject))  return ((JObject)type).ToObject<PayloadObject>();
+                else return null;
             }
             catch(NullReferenceException)
             {

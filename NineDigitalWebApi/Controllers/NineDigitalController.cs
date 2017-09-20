@@ -27,14 +27,10 @@ namespace NineDigitalWebApi.Controllers
         {
             var type = new TypeConverter().ConvertTo(payloadObject);
          
-            if (new Utility.Utility().IsValid(type) == true 
-                && type != null)
+            if (new Utility.Utility().IsValid(type) == true && type != null)
             {
-                Payload[] dataSource = (Payload[])new QuerySelector()
-                    .ExecuteQuery(type);
-                
-                return JsonData = Ok(CustomQueryManagement
-                    .PopulateObject(dataSource));
+                Payload[] dataSource = (Payload[])new QuerySelector().ExecuteQuery(type);
+                return JsonData = Ok(CustomQueryManagement.PopulateObject(dataSource));
             }
             else
             {

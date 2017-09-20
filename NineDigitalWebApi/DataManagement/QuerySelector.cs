@@ -13,21 +13,12 @@ namespace NineDigitalWebApi.DataManagement
         {
             try
             {
-                if (obj.GetType() == typeof(string))
-                {
-                    return JsonConvert.DeserializeObject<PayloadObject>((string)obj).payload
-                     .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
-
-                }
-                else if (obj.GetType() == typeof(PayloadObject))
-                {
-                    return ((PayloadObject)obj).payload
-                        .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
-                }
-                else
-                {
-                    return null;
-                }
+                if (obj.GetType() == typeof(string)) return JsonConvert
+                            .DeserializeObject<PayloadObject>((string)obj).payload
+                            .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
+                else if (obj.GetType() == typeof(PayloadObject)) return ((PayloadObject)obj).payload
+                            .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
+                else return null;
             }
             catch (ArgumentNullException)
             {

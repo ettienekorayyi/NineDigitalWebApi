@@ -20,35 +20,32 @@ namespace NineDigitalWebApi.Utility
             var temp = json;
             try
             {
-                json = (temp.GetType() == typeof(PayloadObject)) 
-                    ? JsonConvert.SerializeObject(temp) : ((string)temp);
-
-                if ((json.ToString().Trim().StartsWith("{")
-                    && json.ToString().Trim().EndsWith("}")) ||
-                        (json.ToString().Trim().StartsWith("[")
-                        && json.ToString().Trim().EndsWith("]")) ||
-                            json.ToString() != String.Empty)
+                json = (temp.GetType() == typeof(PayloadObject)) ? JsonConvert.SerializeObject(temp) : ((string)temp);
+                if ((json.ToString().Trim().StartsWith("{") && json.ToString().Trim().EndsWith("}")) ||
+                    json.ToString() != String.Empty)
                 {
                     try
                     {
-                        JObject obj = JObject.Parse(json.ToString());
-                        JSchema schema = JSchema.Parse(json.ToString());
-                        return obj.IsValid(schema);
+                        return Validation(json.ToString());
                     }
                     catch
                     {
                         return false;
                     }
                 }
-                else
-                {
-                    return false;
-                }
+                else return false;
             }
             catch
             {
                 return false;
             }
+        }
+
+        private bool Validation(string json)
+        {
+            JObject obj = JObject.Parse(json.ToString());
+            JSchema schema = JSchema.Parse(json.ToString());
+            return obj.IsValid(schema);
         }
     }
 }
