@@ -96,7 +96,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="DataManagement\CustomQueryManagement.cs" />
     <Compile Include="DataManagement\QuerySelector.cs" />
-    <Compile Include="Common\TypeObjectManagement.cs" />
+    <Compile Include="Common\TypeConverter.cs" />
     <Compile Include="Controllers\NineDigitalController.cs" />
     <Compile Include="Formatter\CustomJsonFormatter.cs" />
     <Compile Include="Global.asax.cs">

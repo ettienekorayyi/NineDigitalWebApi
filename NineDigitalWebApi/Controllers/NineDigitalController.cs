@@ -20,7 +20,7 @@ namespace NineDigitalWebApi.Controllers
 {
     public class NineDigitalController : ApiController
     {
-        static IHttpActionResult JsonData { get; set; }
+        public static IHttpActionResult JsonData { get; private set; }
 
         [HttpPost]
         public IHttpActionResult Post([FromBody]object payloadObject)
@@ -32,7 +32,8 @@ namespace NineDigitalWebApi.Controllers
             {
                 Payload[] dataSource = (Payload[])new QuerySelector()
                     .ExecuteQuery(type);
-                return JsonData = Ok(new CustomQueryManagement()
+                
+                return JsonData = Ok(CustomQueryManagement
                     .PopulateObject(dataSource));
             }
             else

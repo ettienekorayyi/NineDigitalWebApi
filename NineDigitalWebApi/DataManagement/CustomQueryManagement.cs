@@ -10,9 +10,9 @@ using System.Web.Http.Results;
 
 namespace NineDigitalWebApi.DataManagement
 {
-    public class CustomQueryManagement : ApiController
+    public static class CustomQueryManagement 
     {
-        public ResponseObject PopulateObject(Payload[] dataSource)
+        public static ResponseObject PopulateObject(Payload[] dataSource)
         {
             ResponseObject responseObject = new ResponseObject()
             {
@@ -28,7 +28,7 @@ namespace NineDigitalWebApi.DataManagement
                     title = item.title
                 };
             }
-           
+            
             return responseObject;
         }
     }

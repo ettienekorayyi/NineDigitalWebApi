@@ -11,20 +11,27 @@ namespace NineDigitalWebApi.DataManagement
     {
         public object ExecuteQuery(object obj)
         {
-            if (obj.GetType() == typeof(string))
+            try
             {
-                return JsonConvert.DeserializeObject<PayloadObject>((string)obj).payload
-                 .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
+                if (obj.GetType() == typeof(string))
+                {
+                    return JsonConvert.DeserializeObject<PayloadObject>((string)obj).payload
+                     .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
 
+                }
+                else if (obj.GetType() == typeof(PayloadObject))
+                {
+                    return ((PayloadObject)obj).payload
+                        .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else if (obj.GetType() == typeof(PayloadObject))
+            catch (ArgumentNullException)
             {
-                return ((PayloadObject)obj).payload
-                    .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
-            }
-            else
-            {
-                return null;
+                throw new ArgumentNullException("The argument cannot be deserialized to PayloadObject");
             }
         }
     }

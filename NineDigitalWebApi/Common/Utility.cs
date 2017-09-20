@@ -41,7 +41,9 @@ namespace NineDigitalWebApi.Utility
                     }
                 }
                 else
+                {
                     return false;
+                }
             }
             catch
             {
