@@ -12,7 +12,6 @@ using Newtonsoft.Json.Linq;
 using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Text;
-using NineDigitalWebApi.Utility;
 using NineDigitalWebApi.Common;
 using NineDigitalWebApi.DataManagement;
 
@@ -27,10 +26,11 @@ namespace NineDigitalWebApi.Controllers
         {
             var type = new TypeConverter().ConvertTo(payloadObject);
          
-            if (new Utility.Utility().IsValid(type) == true && type != null)
+            if (new Utility().IsValid(type) == true && type != null)
             {
-                Payload[] dataSource = (Payload[])new QuerySelector().ExecuteQuery(type);
-                return JsonData = Ok(CustomQueryManagement.PopulateObject(dataSource));
+                return JsonData = Ok(CustomQueryManagement
+                    .PopulateObject((Payload[])new QuerySelector()
+                    .ExecuteQuery(type)));
             }
             else
             {

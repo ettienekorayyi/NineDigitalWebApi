@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="DataManagement\CustomQueryManagement.cs" />
     <Compile Include="DataManagement\QuerySelector.cs" />
     <Compile Include="Common\TypeConverter.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IPayloadObject.cs" />
     <Compile Include="Models\CustomJsonErrorMessage.cs" />
     <Compile Include="Models\TvShows.cs" />
     <Compile Include="Models\TvShowsResponse.cs" />
@@ -119,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

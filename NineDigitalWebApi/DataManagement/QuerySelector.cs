@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using NineDigitalWebApi.Interfaces;
 using NineDigitalWebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace NineDigitalWebApi.DataManagement
             }
             catch (ArgumentNullException)
             {
-                throw new ArgumentNullException("The argument cannot be deserialized to PayloadObject");
+                return null;
             }
         }
     }

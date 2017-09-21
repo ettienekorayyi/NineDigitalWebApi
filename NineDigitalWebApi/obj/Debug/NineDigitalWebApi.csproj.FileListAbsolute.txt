@@ -149,3 +149,4 @@ C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\bin\System
 C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\obj\Debug\NineDigitalWebApi.csproj.CoreCompileInputs.cache
 C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\obj\Debug\NineDigitalWebApi.dll
 C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\obj\Debug\NineDigitalWebApi.pdb
+C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\obj\Debug\NineDigitalWebApi.csprojResolveAssemblyReference.cache

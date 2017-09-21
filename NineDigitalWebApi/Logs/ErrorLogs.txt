@@ -1,0 +1,6 @@
+Message :Unable to cast object of type 'System.String' to type 'Newtonsoft.Json.Linq.JObject'.<br/>
+StackTrace :   at NineDigitalWebApi.Common.Utility.IsValid(Object json) in C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\Common\Utility.cs:line 35
+Date :21/09/2017 3:30:36 PM
+
+-----------------------------------------------------------------------------
+

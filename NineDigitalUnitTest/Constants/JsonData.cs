@@ -241,6 +241,6 @@ namespace NineDigitalUnitTest.Constants
                 ""totalRecords/"": 75
             }";
 
-        public const string invalidJsonData = @"{'name':'john','age':22,'class':'mca'}";
+        public const string invalidJsonData = @"{'name':'john','age':22,'class':'mca'";
     }
 }

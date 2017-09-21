@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using NineDigitalWebApi.Interfaces;
 using NineDigitalWebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -14,21 +15,29 @@ namespace NineDigitalWebApi.DataManagement
     {
         public static ResponseObject PopulateObject(Payload[] dataSource)
         {
-            ResponseObject responseObject = new ResponseObject()
+            try
             {
-                response = new Response[dataSource.Length]
-            };
-            int counter = 0;
-            foreach (var item in dataSource)
-            {
-                responseObject.response[counter++] = new Response
+                ResponseObject responseObject = new ResponseObject()
                 {
-                    image = item.image.showImage,
-                    slug = item.slug,
-                    title = item.title
+                    response = new Response[dataSource.Length]
                 };
+                int counter = 0;
+                foreach (var item in dataSource)
+                {
+                    responseObject.response[counter++] = new Response
+                    {
+                        image = item.image.showImage,
+                        slug = item.slug,
+                        title = item.title
+                    };
+                }
+                return responseObject;
             }
-            return responseObject;
+            catch(ArgumentNullException arg)
+            {
+                new ApplicationException("Parameter value is null!", arg);
+            }
+            return null;
         }
     }
 }

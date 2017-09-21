@@ -16,7 +16,7 @@ namespace NineDigitalUnitTest
         [TestMethod]
         public void PostValidJson()
         {
-            var json = Constants.JsonTestData.validJsonString;
+            string json = Constants.JsonTestData.validJsonString;
             var expected = new NineDigitalController().Post(json);
             var actual = NineDigitalController.JsonData;
             

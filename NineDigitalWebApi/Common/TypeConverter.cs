@@ -18,9 +18,9 @@ namespace NineDigitalWebApi.Common
                 else if (type.GetType() == typeof(JObject))  return ((JObject)type).ToObject<PayloadObject>();
                 else return null;
             }
-            catch(NullReferenceException)
+            catch(NullReferenceException exception)
             {
-                return null;
+                return Utility.ErrorLogger(exception);
             }
         }
     }
