@@ -22,10 +22,9 @@ namespace NineDigitalWebApi.Common
             var temp = json;
             try
             {
-                json = (temp.GetType() == typeof(PayloadObject)) 
-                    ? JsonConvert.SerializeObject(temp) : ((string)temp);
-                if ((json.ToString().Trim().StartsWith("{")  
-                    && json.ToString().Trim().EndsWith("}")) ||
+                json = (temp.GetType() == typeof(PayloadObject))  ? JsonConvert.SerializeObject(temp) 
+                    : ((string)temp);
+                if ((json.ToString().Trim().StartsWith("{")  && json.ToString().Trim().EndsWith("}")) ||
                             json.ToString() != String.Empty)
                 {
                     try

@@ -28,8 +28,7 @@ namespace NineDigitalWebApi.Controllers
          
             if (new Utility().IsValid(type) == true && type != null)
             {
-                return JsonData = Ok(CustomQueryManagement
-                    .PopulateObject((Payload[])new QuerySelector()
+                return JsonData = Ok(CustomQueryManagement.PopulateObject(new QuerySelector()
                     .ExecuteQuery(type)));
             }
             else

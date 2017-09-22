@@ -13,16 +13,16 @@ namespace NineDigitalWebApi.DataManagement
 {
     public static class CustomQueryManagement 
     {
-        public static ResponseObject PopulateObject(Payload[] dataSource)
+        public static ResponseObject PopulateObject(IPayloadObject dataSource)
         {
             try
             {
                 ResponseObject responseObject = new ResponseObject()
                 {
-                    response = new Response[dataSource.Length]
+                    response = new Response[dataSource.payload.Length]
                 };
                 int counter = 0;
-                foreach (var item in dataSource)
+                foreach (var item in dataSource.payload)
                 {
                     responseObject.response[counter++] = new Response
                     {
