@@ -26,8 +26,9 @@ namespace NineDigitalWebApi.DataManagement
                 }
                 else
                 {
-                    payloadObject = (PayloadObject)new ObjectCreatorFactory().CreateClasses(obj.GetType());
-                    payloadObject.payload.Where(x => x.drm = true && x.episodeCount > 0).ToArray();
+                    payloadObject = (PayloadObject)new ObjectCreatorFactory().CreateClasses(obj);
+                    payloadObject.payload = ((PayloadObject)obj).payload
+                                        .Where(x => x.drm = true && x.episodeCount > 0).ToArray();
                     return payloadObject;  
                 }
             }
