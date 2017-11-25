@@ -26,14 +26,13 @@ namespace NineDigitalWebApi.Controllers
         {
             var type = new TypeConverter().ConvertTo(payloadObject);
          
-            if (new Utility().IsValid(type) == true && type != null)
+            if (Utility.IsValid(type) == true && type != null)
             {
-                return JsonData = Ok(CustomQueryManagement.PopulateObject(new QuerySelector()
-                    .ExecuteQuery(type)));
+                return JsonData = Ok(CustomQueryManagement.PopulateObject(QuerySelector.ExecuteQuery(type)));
             }
             else
             {
-                return Content(HttpStatusCode.BadRequest, new CustomErrorMessage
+                return JsonData = Content(HttpStatusCode.BadRequest, new CustomErrorMessage
                 {
                     Error = "Could not decode request: JSON parsing failed",
                 });

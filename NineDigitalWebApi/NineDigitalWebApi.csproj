@@ -99,7 +99,7 @@
     <Compile Include="DataManagement\QuerySelector.cs" />
     <Compile Include="Common\TypeConverter.cs" />
     <Compile Include="Controllers\NineDigitalController.cs" />
-    <Compile Include="FactoryPattern\ObjectCreatorFactory.cs" />
+    <Compile Include="Common\ObjectCreatorFactory.cs" />
     <Compile Include="Formatter\CustomJsonFormatter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

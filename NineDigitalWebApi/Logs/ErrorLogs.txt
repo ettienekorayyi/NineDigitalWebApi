@@ -1,6 +1,17 @@
-Message :Unable to cast object of type 'System.String' to type 'Newtonsoft.Json.Linq.JObject'.<br/>
-StackTrace :   at NineDigitalWebApi.Common.Utility.IsValid(Object json) in C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\Common\Utility.cs:line 35
-Date :21/09/2017 3:30:36 PM
+Message :Invalid character after parsing property name. Expected ':' but got: o. Path '', line 1, position 6.<br/>
+StackTrace :   at Newtonsoft.Json.JsonTextReader.ParseProperty()
+   at Newtonsoft.Json.JsonTextReader.ParseObject()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadAndAssert()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at NineDigitalWebApi.Common.Utility.IsValid(Object json) in C:\Users\Stephen\Documents\GitHub\NineDigitalWebApi\NineDigitalWebApi\Common\Utility.cs:line 31
+Date :24/11/2017 7:17:09 PM
 
 -----------------------------------------------------------------------------
 

@@ -2,7 +2,7 @@
 using NineDigitalWebApi.Interfaces;
 using NineDigitalWebApi.Models;
 using System;
-using System.Collections.Generic;
+using NineDigitalWebApi.Common;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -33,9 +33,9 @@ namespace NineDigitalWebApi.DataManagement
                 }
                 return responseObject;
             }
-            catch(ArgumentNullException arg)
+            catch(ArgumentNullException)
             {
-                new ApplicationException("Parameter value is null!", arg);
+                return null;
             }
             return null;
         }

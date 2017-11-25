@@ -17,56 +17,25 @@ namespace NineDigitalWebApi.Common
 {
     public class Utility : ApiController
     {
-        public bool IsValid(object json)
+        public static bool IsValid(object json)
         {
-            var temp = json;
+            string jsonString = string.Empty;
             try
             {
-                json = (temp.GetType() == typeof(PayloadObject))  ? JsonConvert.SerializeObject(temp) 
-                    : ((string)temp);
-                if ((json.ToString().Trim().StartsWith("{")  && json.ToString().Trim().EndsWith("}")) ||
-                            json.ToString() != String.Empty)
+                jsonString = (json.GetType() == typeof(PayloadObject)) ? JsonConvert.SerializeObject(json) : ((string)json);
+                if ((jsonString.Trim().StartsWith("{")  && jsonString.Trim().EndsWith("}")))
                 {
-                    try
-                    {
-                        JObject obj = JObject.Parse(json.ToString());
-                        JSchema schema = JSchema.Parse(json.ToString());
-                        var payloadObject = JsonConvert.DeserializeObject<PayloadObject>(json.ToString());
-                        if (payloadObject.payload != null) return obj.IsValid(schema);
-
-                        return false;
-                    }
-                    catch (Exception ex)
-                    {
-                        return Utility.ErrorLogger(ex);
-                    }
+                    var payloadObject = JsonConvert.DeserializeObject<PayloadObject>(jsonString);
+                    if (payloadObject.payload != null) return JObject.Parse(jsonString)
+                            .IsValid(JSchema.Parse(jsonString));
+                    else return false;
                 }
                 else return false;
             }
-            catch (NullReferenceException nullException)
+            catch (Exception)
             {
-                return ErrorLogger(nullException);
+                return false;
             }
-            catch (Exception exception)
-            {
-                return ErrorLogger(exception);
-            }
-        }
-
-        public static bool ErrorLogger(_Exception exception)
-        {
-            var path = Environment.GetFolderPath(Environment
-                        .SpecialFolder.MyDocuments) + Constants.filePath;
-            using (StreamWriter writer = new StreamWriter(path))
-            {
-                writer.WriteLine("Message :" + exception.Message + "<br/>"
-                    + Environment.NewLine + "StackTrace :" + exception.StackTrace +
-                    "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
-                writer.WriteLine(Environment.NewLine +
-                    "-----------------------------------------------------------------------------"
-                    + Environment.NewLine);
-            }
-            return false;
         }
     }
 }

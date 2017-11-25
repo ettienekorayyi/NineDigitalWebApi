@@ -12,5 +12,4 @@ namespace NineDigitalWebApi.Models
     {
         public string Error { get; set; }
     }
-
 }
